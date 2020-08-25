@@ -1,3 +1,7 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'example.g.dart';
+
 const myStr = 'Lorem';
 final myInt = 12;
 final myDouble = 2.5;
@@ -11,22 +15,24 @@ void myFunc = () {
   print('Hello world!!!');
 };
 
+@JsonSerializable(nullable: false)
 class Order {
   final int id;
   final String name;
+  final String price;
 
   const Order(
     this.id,
     this.name,
+    this.price,
   );
 
   @override
-  String toString() => '[Order] id=$id, name=$name';
+  String toString() => details();
 
   @override
-  bool operator ==(Object other) =>
-      other is Order && id == other.id && name == other.name;
+  bool operator ==(Object other) => compare(other);
 
   @override
-  int get hashCode => id.hashCode + name.hashCode;
+  int get hashCode => calculateHash();
 }

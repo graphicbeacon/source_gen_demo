@@ -1,0 +1,15 @@
+targets:
+  $default:
+    builders:
+      my_generators|infoGeneratorBuilder:
+        enabled: True
+        generate_for:
+          - lib/src/*
+      my_generators|classExtrasGeneratorBuilder:
+        enabled: True
+        generate_for:
+          - lib/src/*
+      my_generators|serializeGeneratorBuilder:
+        enabled: True
+        generate_for:
+          - lib/src/*
