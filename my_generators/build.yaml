@@ -1,0 +1,22 @@
+builders:
+  infoGeneratorBuilder:
+    import: 'package:my_generators/my_generators.dart'
+    builder_factories: ['infoGeneratorBuilder']
+    auto_apply: dependents
+    build_extensions: {".dart": [".info.part"]}
+    build_to: cache
+    applies_builders: ["source_gen|combining_builder"]
+  classExtrasGeneratorBuilder:
+    import: 'package:my_generators/my_generators.dart'
+    builder_factories: ['classExtrasGeneratorBuilder']
+    auto_apply: dependents
+    build_extensions: {".dart": [".fields.part"]}
+    build_to: cache
+    applies_builders: ["source_gen|combining_builder"]
+  serializeGeneratorBuilder:
+    import: 'package:my_generators/my_generators.dart'
+    builder_factories: ['serializeGeneratorBuilder']
+    auto_apply: dependents
+    build_extensions: {".dart": [".serialize.part"]}
+    build_to: cache
+    applies_builders: ["source_gen|combining_builder"]
